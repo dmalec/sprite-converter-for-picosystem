@@ -52,14 +52,14 @@ const color_t custom_sprite_sheet_data[256] = {
   0x0000, 0x0000, 0x0000, 0x0ff0, 0x0ff0, 0x0000, 0x0000, 0x0000,
   0x00f0, 0x00f0, 0xffff, 0xffff, 0x00f0, 0x00f0, 0xffff, 0xffff,
 };
-buffer_t CUSTOM_SPRITESHEET{.w = 16, .h = 16,.data = (color_t *)custom_sprite_sheet_data};
-buffer_t *custom_sprite_sheet = &CUSTOM_SPRITESHEET;
+buffer_t *CUSTOM_SPRITESHEET = buffer(16, 16, (void *)custom_sprite_sheet_data);
+buffer_t *custom_sprite_sheet = CUSTOM_SPRITESHEET;
 ```
 
 Which can then be pasted into your source code and used like so:
 ```c
   // load custom spritesheet
-  spritesheet(*custom_sprite_sheet);
+  spritesheet(custom_sprite_sheet);
 ...
   // draw the first sprite at location 10, 20
   sprite(0, 10, 20);

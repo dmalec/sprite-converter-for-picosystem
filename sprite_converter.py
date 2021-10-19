@@ -61,7 +61,7 @@ for row in range(pixel_height):
             print(" ", end="")
 print("};")
 
-print(f"buffer_t CUSTOM_SPRITESHEET{{.w = {pixel_width}, .h = {pixel_height},"
-      ".data = (color_t *)custom_sprite_sheet_data};")
-print("buffer_t *custom_sprite_sheet = &CUSTOM_SPRITESHEET;")
+print(f"buffer_t *CUSTOM_SPRITESHEET = buffer({pixel_width}, {pixel_height}, "
+      "(void *)custom_sprite_sheet_data);")
+print("buffer_t *custom_sprite_sheet = CUSTOM_SPRITESHEET;")
 print()
